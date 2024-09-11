@@ -24,7 +24,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.createProduct(productDTO));
     }
 
-    @PostMapping("/multiples")
+    @PostMapping("/bulk")
     public ResponseEntity<List<Product>> createMultipleProducts(@RequestBody List<ProductDTO> productDTOs) {
         List<Product> products = productService.createMultipleProducts(productDTOs);
         return new ResponseEntity<>(products, HttpStatus.CREATED);
@@ -33,6 +33,11 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
+    }
+
+    @GetMapping("/nopromotions")
+    public ResponseEntity<List<ProductDTO>> getAllProductsWithoutPromotions() {
+        return ResponseEntity.ok(productService.getAllProductsWithoutPromotions());
     }
 
     @GetMapping("/{id}")

@@ -3,6 +3,7 @@ package com.qikserve.paymentsystem.service;
 import com.qikserve.paymentsystem.dto.ProductDTO;
 import com.qikserve.paymentsystem.model.Product;
 import com.qikserve.paymentsystem.repository.ProductRepository;
+import com.qikserve.paymentsystem.util.ProductConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private ProductConverter productConverter;
 
     public Product createProduct(ProductDTO productDTO) {
         Product product = new Product();
@@ -39,6 +43,13 @@ public class ProductService {
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    public List<ProductDTO> getAllProductsWithoutPromotions() {
+        List<Product> products = productRepository.findAll();
+        return products.stream()
+                .map(productConverter::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     public Product getProductById(String id) {

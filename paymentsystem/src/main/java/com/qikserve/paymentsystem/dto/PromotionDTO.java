@@ -3,8 +3,8 @@ package com.qikserve.paymentsystem.dto;
 import lombok.Data;
 
 @Data
-public class ProductDTO {
-    private String id;
-    private String name;
+public class PromotionDTO {
+    private String type;
+    private int requiredQty;
     private int price;
 }
