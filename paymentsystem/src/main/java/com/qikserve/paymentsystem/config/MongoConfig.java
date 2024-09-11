@@ -17,7 +17,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     @Bean
     @Override
     public MongoClient mongoClient() {
-        return MongoClients.create("mongodb://admin:admin@localhost:27017/productdb");
+        return MongoClients.create("mongodb://admin:admin@localhost:27017/");
     }
 
     @Override
