@@ -1,25 +1,23 @@
-
-```markdown
 # Payment System - Spring Boot Project
 
-## Especificações do Projeto
+## Project Specifications
 
-Este projeto é uma API RESTful construída com **Spring Boot** e **MongoDB** para gerenciar produtos e promoções. A aplicação utiliza o **Java 17** e o gerenciador de dependências **Maven**.
+This project is a RESTful API built with **Spring Boot** and **MongoDB** to manage products and promotions. The application uses **Java 17** and **Maven** as the build tool.
 
-### Informações do Projeto
+### Project Information
 - **Framework**: Spring Boot 3.3.3
-- **Gerenciador de Projeto**: Maven
-- **Linguagem**: Java 17
-- **Banco de Dados**: MongoDB (NoSQL)
+- **Build Tool**: Maven
+- **Language**: Java 17
+- **Database**: MongoDB (NoSQL)
 
-### Dependências Utilizadas:
-- **Spring Boot Starter Data MongoDB**: Para integração com o banco de dados MongoDB.
-- **Spring Boot Starter Web**: Para construção da API REST.
-- **Lombok**: Para reduzir o boilerplate de código (getters, setters, etc.).
+### Dependencies Used:
+- **Spring Boot Starter Data MongoDB**: For MongoDB database integration.
+- **Spring Boot Starter Web**: For building the REST API.
+- **Lombok**: To reduce boilerplate code (getters, setters, etc.).
 
-## Configuração do Banco de Dados
+## Database Configuration
 
-O projeto utiliza o MongoDB como banco de dados NoSQL. Para rodar o MongoDB via Docker, execute o seguinte comando para criar o container:
+The project uses MongoDB as the NoSQL database. To run MongoDB via Docker, execute the following command to create the container:
 
 ```bash
 docker run -d --name mongodb-container -p 27017:27017 \
@@ -28,11 +26,11 @@ docker run -d --name mongodb-container -p 27017:27017 \
   mongo:latest
 ```
 
-Após a criação do container, recomenda-se utilizar o **MongoDB Compass** ou qualquer outra ferramenta gráfica de sua escolha para visualizar os dados transacionados no banco de dados.
+After creating the container, it is recommended to use **MongoDB Compass** or any other GUI tool of your choice to view the data being transacted in the database.
 
-### Configurações de Conexão
+### Connection Settings
 
-As configurações do banco de dados estão definidas no arquivo `application.yml`:
+The database connection settings are defined in the `application.yml` file:
 
 ```yaml
 spring:
@@ -45,76 +43,70 @@ spring:
       password: admin
 ```
 
-> **Nota**: O banco de dados deve estar rodando para que o build e a execução do projeto ocorram corretamente.
+> **Note**: The database must be running for the project to build and run correctly.
 
-## Instruções de Build e Execução
+## Build and Run Instructions
 
-Para baixar todas as dependências e compilar o projeto, execute o seguinte comando:
+To download all dependencies and build the project, run the following command:
 
 ```bash
 mvn clean install -DskipTests=true
 ```
 
-Esse comando irá compilar o projeto e pular a execução dos testes.
+This command will compile the project and skip running the tests.
 
-## Endpoints da API
+## API Endpoints
 
-A seguir estão detalhados os principais endpoints disponíveis na API:
+Below are the main available endpoints in the API:
 
-### Endpoints Requeridos
+### Required Endpoints
 
-#### 1. Inserção de Produtos
+#### 1. Product Insertion
 
-- **Método**: `POST`
-- **Rota**: `/products`
-- **Descrição**: Insere um novo produto no banco de dados.
+- **Method**: `POST`
+- **Route**: `/products`
+- **Description**: Inserts a new product into the database.
 
-#### 2. Inserção de Promoções para Produtos
+#### 2. Insert Promotions for Products
 
-- **Método**: `POST`
-- **Rota**: `/promotions/{productId}`
-- **Descrição**: Insere uma promoção associada a um produto específico.
+- **Method**: `POST`
+- **Route**: `/promotions/{productId}`
+- **Description**: Inserts a promotion associated with a specific product.
 
-### Endpoints Adicionais
+### Additional Endpoints
 
-#### 3. Inserção em Massa de Produtos
+#### 3. Bulk Product Insertion
 
-- **Método**: `POST`
-- **Rota**: `/products/bulk`
-- **Descrição**: Insere vários produtos em massa.
+- **Method**: `POST`
+- **Route**: `/products/bulk`
+- **Description**: Inserts multiple products in bulk.
 
-#### 4. Recuperar Todos os Produtos
+#### 4. Retrieve All Products
 
-- **Método**: `GET`
-- **Rota**: `/products`
-- **Descrição**: Retorna todos os produtos e promoções cadastrados.
+- **Method**: `GET`
+- **Route**: `/products`
+- **Description**: Returns all registered products and promotions.
 
-#### 5. Recuperar Produtos sem Promoções
+#### 5. Retrieve Products Without Promotions
 
-- **Método**: `GET`
-- **Rota**: `/products/nopromotions`
-- **Descrição**: Retorna todos os produtos que não têm promoções associadas.
+- **Method**: `GET`
+- **Route**: `/products/nopromotions`
+- **Description**: Returns all products that do not have associated promotions.
 
-#### 6. Recuperar Produto por ID
+#### 6. Retrieve Product by ID
 
-- **Método**: `GET`
-- **Rota**: `/products/{id}`
-- **Descrição**: Retorna as informações de um produto específico com base no ID fornecido.
+- **Method**: `GET`
+- **Route**: `/products/{id}`
+- **Description**: Returns the information of a specific product by its ID.
 
-## Documentação da API
+## API Documentation
 
-A documentação completa da API pode ser acessada pelo Swagger UI através do seguinte endereço:
+The full API documentation can be accessed through Swagger UI at the following address:
 
 [http://localhost:8080/swagger-ui/index.html#/](http://localhost:8080/swagger-ui/index.html#/)
 
-## Contribuições
-
-Este projeto está aberto para contribuições. Caso encontre algum problema ou queira sugerir melhorias, fique à vontade para abrir um pull request ou uma issue no repositório.
-
 ---
 
-### Autor
+### Author
 
-Projeto desenvolvido pela equipe da QikServe para gerenciamento de produtos e promoções em um sistema de pagamentos.
-```
-
+Project developed by Leandro Bernardo for managing products and promotions in a payment system.
